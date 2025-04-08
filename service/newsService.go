@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/CherryRadiator/hakathon2025Spring/entities"
-	e "github.com/CherryRadiator/hakathon2025Spring/error"
-	"github.com/CherryRadiator/hakathon2025Spring/internal"
-	"github.com/CherryRadiator/hakathon2025Spring/config"
+	"github.com/dmxmss/news-service/entities"
+	e "github.com/dmxmss/news-service/error"
+	"github.com/dmxmss/news-service/internal"
+	"github.com/dmxmss/news-service/config"
 )
 
 type NewsService interface {

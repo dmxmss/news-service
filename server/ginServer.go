@@ -3,10 +3,10 @@ package server
 import (
 	"strings"
 
-	"github.com/CherryRadiator/hakathon2025Spring/config"
-	"github.com/CherryRadiator/hakathon2025Spring/entities"
-	e "github.com/CherryRadiator/hakathon2025Spring/error"
-	"github.com/CherryRadiator/hakathon2025Spring/service"
+	"github.com/dmxmss/news-service/config"
+	"github.com/dmxmss/news-service/entities"
+	e "github.com/dmxmss/news-service/error"
+	"github.com/dmxmss/news-service/service"
 	"github.com/gin-gonic/gin"
 
 	"fmt"

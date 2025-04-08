@@ -2,9 +2,9 @@ package server
 
 import (
   "github.com/gin-gonic/gin"
-	"github.com/CherryRadiator/hakathon2025Spring/entities"
-	e "github.com/CherryRadiator/hakathon2025Spring/error"
-	"github.com/CherryRadiator/hakathon2025Spring/config"
+	"github.com/dmxmss/news-service/entities"
+	e "github.com/dmxmss/news-service/error"
+	"github.com/dmxmss/news-service/config"
 	"github.com/golang-jwt/jwt/v5"
 
   "net/http"

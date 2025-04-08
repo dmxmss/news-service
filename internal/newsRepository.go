@@ -1,9 +1,9 @@
 package internal
 
 import (
-	"github.com/CherryRadiator/hakathon2025Spring/entities"
-	"github.com/CherryRadiator/hakathon2025Spring/config"
-	e "github.com/CherryRadiator/hakathon2025Spring/error"
+	"github.com/dmxmss/news-service/entities"
+	"github.com/dmxmss/news-service/config"
+	e "github.com/dmxmss/news-service/error"
 	"gorm.io/gorm"
 	"gorm.io/driver/postgres"
 

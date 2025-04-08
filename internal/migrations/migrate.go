@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/CherryRadiator/hakathon2025Spring/entities"
-	"github.com/CherryRadiator/hakathon2025Spring/internal"
-	"github.com/CherryRadiator/hakathon2025Spring/config"
+	"github.com/dmxmss/news-service/config"
+	"github.com/dmxmss/news-service/internal"
+	"github.com/dmxmss/news-service/entities"
 	"gorm.io/gorm"
 )
 

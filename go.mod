@@ -1,4 +1,4 @@
-module github.com/CherryRadiator/hakathon2025Spring
+module github.com/dmxmss/news-service
 
 go 1.24.1
 

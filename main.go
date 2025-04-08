@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/CherryRadiator/hakathon2025Spring/config"
-	"github.com/CherryRadiator/hakathon2025Spring/server"
+	"github.com/dmxmss/news-service/server"
+	"github.com/dmxmss/news-service/config"
 )
 
 func main() {
