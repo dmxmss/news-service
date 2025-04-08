@@ -1,0 +1,200 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+paths:
+  /news:
+    get:
+      summary: Get all news
+      operationId: searchNews
+      parameters:
+        - $ref: "#/components/parameters/Keyword"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GetNewsDto"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Make news 
+      operationId: makeNews
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MakeNewsDto"
+      responses:
+        "201":  
+          description: News created
+          content:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /news/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      summary: Get News by id
+      operationId: getNewsById
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetNewsDto"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetNewsDto"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetNewsDto"
+    patch:
+      summary: Change news information
+      operationId: patchNewsById
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchNewsDto"
+      responses:
+        "201": 
+          description: News changed
+          content:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      operationId: deleteNewsById
+      responses:
+        "201": 
+          description: News changed
+          content:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    GetNewsDto:
+      type: object
+      properties:
+        title:
+          type: string
+        contents:
+          type: string
+        created_at:
+          type: string
+          format: date
+        author_id:
+          type: int
+      required:
+        - name
+        - contents
+        - author_id
+    MakeNewsDto:
+      type: object 
+      properties:
+        title: 
+          type: string
+        contents: 
+          type: string
+      required:
+        - title
+        - contents
+    PatchNewsDto:
+      type: object
+      properties:
+        title:
+          type: string
+        contents: 
+          type: string
+      required:
+        - title 
+        - contents
+    Error:
+      type: object
+      properties:
+        error: 
+          type: string
+      required:
+        - error
+  parameters:
+    Keyword:
+      name: keyword
+      in: query
+      description: Search term to match in title or content
+      required: false
+      schema:
+        type: string
+    TagIds:
+      name: tagIds
+      in: query
+      description: Comma-separated list of tag IDs 
+      required: false
+      schema:
+        type: array
+        items:
+          type: integer
+          format: int64
+      explode: false
+      example: "1,3"
+    Resources:
+      name: resources
+      in: query
+      description: Comma-separated list of resources
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+      explode: false
+      example: "rnf,scopus"
